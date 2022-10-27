@@ -20,3 +20,7 @@ socket.on('desconectado', function (data) {
   document.querySelector('#notificaciones').innerHTML = JSON.stringify(notificaciones);
 });
 
+function sendName(){
+  var name=document.getElementById("inName").text
+  io.emit('conectado', {texto: 'texto: ' + name +`<br>`} );
+}
