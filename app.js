@@ -20,4 +20,12 @@ io.on('connection', function (socket) {
   
   });
 
+  socket.on('chat:mensaje', (data) => {
+    io.emit('chat:mensaje', data);
+  });
+
+  socket.on('chat:escribiendo', (usuario) => {
+    socket.broadcast.emit('chat:escribiendo', usuario);
+  });
+
 });
