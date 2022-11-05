@@ -4,7 +4,7 @@ let salida = document.getElementById("salida")
 let notificaciones = document.getElementById("notificaciones")
 let boton = document.getElementById("enviar")
 //Crear una instancia de SocketIO, recibe como parámetro el url del servidor al que se conectará
-var socket = io.connect('http://localhost:8080');
+var socket = io.connect('http://192.168.20.80:8080');
 
 var clientes=[]
 
@@ -28,8 +28,9 @@ mensaje.addEventListener("keydown", function(){
 
 
 socket.on('chat:mensaje', function(data){
-  salida.innerHTML+= "<b>"+data.usuario+"</b>: "+data.mensaje+"<br>"
-  avisos.innerHTML=""
+  salida.innerHTML+= 
+    '<b>' +data.usuario+ '</b>:' + data.mensaje + '<br>'
+  avisos.innerHTML=''
 });
 
 socket.on('chat:escribiendo', function(data){
